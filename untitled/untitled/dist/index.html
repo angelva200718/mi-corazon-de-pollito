@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  88<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Estrella</title>
+  <style>
+    /* ======== ESTILOS ======== */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000; /* Fondo negro */
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .contenedor {
+      margin: 40px auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.6); /* Fondo del contenedor más oscuro */
+      border-radius: 15px;
+      max-width: 400px; /* Contenedor más pequeño */
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    .foto {
+      width: 250px; /* Foto más pequeña */
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #9333ea;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7e22ce;
+    }
+
+    .botones-musica {
+      margin-top: 15px;
+    }
+
+    /* ====== CIELO Y ESTRELLAS ====== */
+    .cielo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .luna {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #fdf6e3, #fcd34d);
+      border-radius: 50%;
+      box-shadow: 0 0 30px #fcd34d;
+      animation: flotar 5s ease-in-out infinite;
+    }
+
+    .estrella {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: parpadear 2s infinite ease-in-out alternate;
+    }
+
+    .estrella1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .estrella2 { top: 20%; left: 80%; animation-delay: 0.2s; }
+    .estrella3 { top: 30%; left: 30%; animation-delay: 0.4s; }
+    .estrella4 { top: 40%; left: 60%; animation-delay: 0.6s; }
+    .estrella5 { top: 50%; left: 15%; animation-delay: 0.8s; }
+    .estrella6 { top: 60%; left: 75%; animation-delay: 1s; }
+    .estrella7 { top: 70%; left: 25%; animation-delay: 1.2s; }
+    .estrella8 { top: 80%; left: 50%; animation-delay: 1.4s; }
+    .estrella9 { top: 90%; left: 80%; animation-delay: 1.6s; }
+    .estrella10 { top: 10%; left: 50%; animation-delay: 1.8s; }
+
+    @keyframes parpadear {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0.2; transform: scale(1); }
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .estrella-fugaz {
+      position: absolute;
+      top: 20%;
+      left: -100px;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, white, transparent);
+      box-shadow: 0 0 8px white;
+      transform: rotate(15deg);
+      animation: caerEstrella 6s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes caerEstrella {
+      0% { left: -100px; top: 20%; opacity: 0; }
+      10% { opacity: 1; }
+      50% { left: 110%; top: 40%; opacity: 0; }
+      100% { left: 110%; top: 40%; opacity: 0; }
+    }
+
+    /* ====== LETRAS ANIMADAS ====== */
+    .letras-musica {
+      position: fixed;
+      bottom: 20px;
+      width: 90%;
+      max-width: 600px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 1.3em;
+      color: #fff;
+      text-shadow: 0 0 8px #fff, 0 0 15px #f0f, 0 0 20px #0ff;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    audio {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ====== CIELO ====== -->
+  <div class="cielo">
+    <div class="luna"></div>
+    <div class="estrella estrella1"></div>
+    <div class="estrella estrella2"></div>
+    <div class="estrella estrella3"></div>
+    <div class="estrella estrella4"></div>
+    <div class="estrella estrella5"></div>
+    <div class="estrella estrella6"></div>
+    <div class="estrella estrella7"></div>
+    <div class="estrella estrella8"></div>
+    <div class="estrella estrella9"></div>
+    <div class="estrella estrella10"></div>
+    <div class="estrella-fugaz"></div>
+  </div>
+
+  <!-- ====== CONTENIDO ====== -->
+  <div class="contenedor">
+    <h1>💓 Para mi corazón de pollito 🌙</h1>
+    <img src="https://i.postimg.cc/02r0bL9V/561036-DA-C8-CC-4-A63-B228-08-E59148362-E.jpg" alt="Foto especial" class="foto" />
+    <p>Holaaa mi vale, espero la pases bien con tu familia este día tan especial, feliz cumpleaños mi niña de ojitos bonitos tqm ♥</p>
+
+    <!-- Botones -->
+    <div class="botones-musica">
+      <button onclick="document.getElementById('musica').play()">🎵 Reproducir Música</button>
+      <button onclick="document.getElementById('musica').pause()">⏸️ Pausar Música</button>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="musica" autoplay loop>
+    <source src="https://github.com/angelva200718/music-los-vaguesn/raw/main/Los%20Vaguens%20-%20Los%20Amantes%20(V%C3%ADdeo%20Oficial)%20-%20Los%20Vaguens.mp3" type="audio/mpeg">
+    Tu navegador no soporta reproducción de audio.
+  </audio>
+
+  <!-- Letras sincronizadas -->
+  <div class="letras-musica" id="letra">🎵</div>
+
+  <!-- ====== JS ====== -->
+  <script>
+    const letras = [
+      { tiempo: 00, texto: " 🎶 " },
+      { tiempo: 04, texto: " Los Amantes - Los Vaguens " },
+      { tiempo: 08, texto: " 🎶 " },
+      { tiempo: 20, texto: "Amiga🗣️" },
+      { tiempo: 22, texto: "Pasa el tiempo y sé que nunca volverás :c" },
+      { tiempo: 27, texto: "Las heridas que me hiciste sanarán" },
+      { tiempo: 31, texto: "Y siempre que tú quieras volveréeeeeeee🗣️" },
+      { tiempo: 38, texto: "Querida (✿◡‿◡) " },
+      { tiempo: 40, texto: "Te deseo como nunca lo deseé" },
+      { tiempo: 45, texto: "Te anhelo como nunca lo anhelé" },
+      { tiempo: 49, texto: "Y aunque hiciste lo que hiciste te amaré" },
+      { tiempo: 56, texto: "Vuuuuelve conmigo🗣️" },
+      { tiempo: 60, texto: "Aquí estaré contigo" },
+      { tiempo: 65, texto: "Yo sé que hiciste" },
+      { tiempo: 67, texto: "Nuevos caminos en tu andaaar🗣️" },
+      { tiempo: 72, texto: "Y vuela conmigo" },
+      { tiempo: 76, texto: "Sólo eeeso te pido🗣️" },
+      { tiempo: 81, texto: "Y si quieres" },
+      { tiempo: 83, texto: "Después de eeesoo ╯︿╰ " },
+      { tiempo: 88, texto: "te olvidó ＞︿＜ " },
+      { tiempo: 96, texto: " 🎶 " },
+      { tiempo: 107, texto: "Mi vida" },
+      { tiempo: 109, texto: "Pasa lenta desde que tú ya no estás" },
+      { tiempo: 114, texto: "Por las noches solo extraño tu llamar! ╯︿╰" },
+      { tiempo: 118, texto: "Y en mi cuarto solo existe" },
+      { tiempo: 120, texto: "Soleedad🗣️" },
+      { tiempo: 125, texto: "Querida (✿◡‿◡) " },
+      { tiempo: 127, texto: "Me dicen que te tengo que olvidar ╯︿╰ " },
+      { tiempo: 132, texto: "Y en cada copa te vuelvo a encontrar" },
+      { tiempo: 136, texto: "¿Hasta cuándo te dejaré de pensaaaaaaar🗣️?" },
+      { tiempo: 143, texto: "Vuelve conmigo🗣️" },
+      { tiempo: 147, texto: "Aquí estaré contigo ＜（＾－＾）＞" },
+      { tiempo: 152, texto: "Yo sé que hiciste" },
+      { tiempo: 154, texto: "Nuevos caminos en tu andaaaar🗣️" },
+      { tiempo: 159, texto: "Y vuela conmigo" },
+      { tiempo: 163, texto: "Sólooo eso te pidoo" },
+      { tiempo: 168, texto: "Y si quieres" },
+      { tiempo: 170, texto: "Después de esoooooo🗣️" },
+      { tiempo: 179, texto: "te olvidóo ╯︿╰ " },
+      { tiempo: 189, texto: " 🎶 " }
+    ];
+
+    const audio = document.getElementById("musica");
+    const contenedorLetra = document.getElementById("letra");
+    let index = 0;
+
+    function actualizarLetra() {
+      if (index < letras.length && audio.currentTime >= letras[index].tiempo) {
+        const nuevaLinea = document.createElement("p");
+        nuevaLinea.textContent = letras[index].texto;
+        nuevaLinea.classList.add("fade-in-up");
+
+        contenedorLetra.innerHTML = "";
+        contenedorLetra.appendChild(nuevaLinea);
+
+        index++;
+      }
+    }
+
+    audio.addEventListener("timeupdate", actualizarLetra);
+
+    audio.addEventListener("play", () => {
+      index = 0;
+      contenedorLetra.innerHTML = "";
+    });
+
+    window.onload = () => {
+      audio.play().catch(e => {
+        contenedorLetra.textContent = "Haz clic para iniciar la música";
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+    };
+  </script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

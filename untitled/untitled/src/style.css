@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000; /* noche completamente negra */
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.estrellas {
+  background: transparent url('https://raw.githubusercontent.com/kangax/fake-cdn/master/stars-bg.gif') repeat top center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.contenedor {
+  margin-top: 40px; /* más compacto hacia arriba */
+  padding: 15px;    /* menos espacio interno */
+  background: rgba(0, 0, 0, 0.6); /* contenedor más oscuro */
+  border-radius: 15px;
+  max-width: 400px; /* más pequeño que antes */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 1.6em; /* un poquito más pequeño */
+}
+
+.foto {
+  width: 250px; /* más pequeña */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+  margin: 15px 0; /* menos espacio arriba y abajo */
+}
+
+p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #7e22ce;
+}
+
+.botones-musica {
+  margin-top: 15px; /* menos separación */
+}
+
+/* Cielo y luna */
+.cielo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.luna {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #fdf6e3, #fcd34d);
+  border-radius: 50%;
+  box-shadow: 0 0 30px #fcd34d;
+  animation: flotar 5s ease-in-out infinite;
+}
+
+/* Estrellitas */
+.estrella {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: parpadear 2s infinite ease-in-out alternate;
+}
+
+.estrella1 { top: 15%; left: 10%; animation-delay: 0s; }
+.estrella2 { top: 20%; left: 80%; animation-delay: 0.2s; }
+.estrella3 { top: 30%; left: 30%; animation-delay: 0.4s; }
+.estrella4 { top: 40%; left: 60%; animation-delay: 0.6s; }
+.estrella5 { top: 50%; left: 15%; animation-delay: 0.8s; }
+.estrella6 { top: 60%; left: 75%; animation-delay: 1s; }
+.estrella7 { top: 70%; left: 25%; animation-delay: 1.2s; }
+.estrella8 { top: 80%; left: 50%; animation-delay: 1.4s; }
+.estrella9 { top: 90%; left: 80%; animation-delay: 1.6s; }
+.estrella10 { top: 10%; left: 50%; animation-delay: 1.8s; }
+
+@keyframes parpadear {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Estrella fugaz */
+.estrella-fugaz {
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  box-shadow: 0 0 8px white;
+  transform: rotate(15deg);
+  animation: caerEstrella 6s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes caerEstrella {
+  0% { left: -100px; top: 20%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { left: 110%; top: 40%; opacity: 0; }
+  100% { left: 110%; top: 40%; opacity: 0; }
+}
+
+/* Letras animadas */
+.letras-musica {
+  position: fixed;
+  bottom: 20px;
+  width: 90%;
+  max-width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.4em;
+  color: #fff;
+  text-shadow: 0 0 8px #fff, 0 0 12px #f0f, 0 0 15px #0ff;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
